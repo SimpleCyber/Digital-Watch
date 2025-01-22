@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        background-color: rgb(34, 34, 34);
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-image: none;
+        border: 0.6rem dashed rgb(112, 112, 112);
+        padding: 2rem;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .time {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        background-color: rgb(16, 16, 16);
+        width: 9rem;
+        height: 9rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border: 0.5rem solid rgb(112, 112, 112);
+        border-radius: 1.5rem;
+      }
+      .box,
+      .dot {
+        color: green;
+        font-family: cursive;
+        font-size: 6rem;
+      }
+
+      .dot {
+        color: rgb(112, 112, 112);
+        margin-bottom: 1.8rem;
+      }
+
+      .name,
+      .heading,
+      .date {
+        margin-top: 0.2rem;
+        color: rgb(112, 112, 112);
+        font-family: cursive;
+        font-size: 1.3rem;
+      }
+
+      .heading {
+        font-size: 3rem;
+        text-decoration: underline;
+      }
+
+      .date {
+        color: tomato;
+        font-size: 1.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="header">
+        <h1 class="heading">Digital Watch</h1>
+        <div class="date" id="date">date</div>
+      </div>
+
+      <div class="time">
+        <div>
+          <div class="box hours" id="hour">00</div>
+          <div class="name">Hour</div>
+        </div>
+        <div class="dot">:</div>
+        <div>
+          <div class="box minute" id="minute">00</div>
+          <div class="name">Minute</div>
+        </div>
+        <div class="dot">:</div>
+        <div>
+          <div class="box second" id="second">00</div>
+          <div class="name">Second</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function time() {
+        var currentDate = new Date();
+
+        document.getElementById("date").textContent =
+          currentDate.getDate() +
+          "/" +
+          currentDate.getMonth() +
+          "/" +
+          currentDate.getFullYear();
+
+        document.getElementById("hour").textContent = currentDate.getHours();
+
+        document.getElementById("minute").textContent =
+          currentDate.getMinutes();
+
+        document.getElementById("second").textContent =
+          currentDate.getSeconds();
+
+        setTimeout(time, 500);
+      }
+
+      time();
+    </script>
+  </body>
+</html>
